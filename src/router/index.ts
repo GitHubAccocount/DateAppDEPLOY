@@ -1,3 +1,4 @@
+import { useQuestionsStore } from '@/stores/questions';
 import { createRouter, createWebHistory } from 'vue-router';
 
 const router = createRouter({
@@ -11,7 +12,15 @@ const router = createRouter({
     {
       path: '/find',
       name: 'find',
-      component: () => import('@/views/FindView.vue')
+      // async function has to be implemented becasue without it the data were not rendered
+      // after refreshing the page. If the page /find was accessed from another page, for example
+      // /home then no problem. But after refreshing there was no data rendered.
+      // The code below solves the problem
+      component: async () => {
+        const userStore = useQuestionsStore();
+        await userStore.FETCH_USERS();
+        return import('@/views/FindView.vue');
+      }
     },
     {
       path: '/blog',
@@ -27,6 +36,11 @@ const router = createRouter({
       path: '/form/2',
       name: 'form2',
       component: () => import('@/views/FormPersonalView.vue')
+    },
+    {
+      path: `/find/:id`,
+      name: 'user',
+      component: () => import('@/views/SpecificUser.vue')
     }
   ]
 });
