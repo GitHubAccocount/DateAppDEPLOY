@@ -6,8 +6,6 @@
 </template>
 
 <script lang="ts" setup>
-import { arrayBuffer } from 'stream/consumers';
-
 const props = defineProps({
   text: {
     type: String,

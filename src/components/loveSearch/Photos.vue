@@ -8,17 +8,21 @@
 
 <script lang="ts" setup>
 import { onBeforeUnmount, ref } from 'vue';
+import couple1 from '/assets/couple1v2.jpeg';
+import couple2 from '/assets/couple2v2.jpeg';
+import couple3 from '/assets/couple3v2.jpeg';
+import couple4 from '/assets/couple4v2.jpeg';
 
 const photo = ref<string>('assets/couple1v2.jpeg');
 const currentIndex = ref<number>(0);
 
+const couple1Path = ref(couple1);
+const couple2Path = ref(couple2);
+const couple3Path = ref(couple3);
+const couple4Path = ref(couple4);
+
 const changePhoto = () => {
-  const photos = [
-    'assets/couple1v2.jpeg',
-    'assets/couple2v2.jpeg',
-    'assets/couple3v2.jpeg',
-    'assets/couple4v2.jpeg'
-  ];
+  const photos = [couple1Path.value, couple2Path.value, couple3Path.value, couple4Path.value];
   currentIndex.value = (currentIndex.value + 1) % photos.length;
   photo.value = photos[currentIndex.value];
 };
