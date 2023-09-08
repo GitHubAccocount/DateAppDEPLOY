@@ -6,7 +6,7 @@
 
 <script setup lang="ts">
 import { RouterView, useRoute } from 'vue-router';
-import MainNav from '@/components/navigation/MainNav.vue';
+import MainNav from '@/components/Navigation/MainNav.vue';
 import MainFooter from './components/footer/MainFooter.vue';
 import { computed } from 'vue';
 
