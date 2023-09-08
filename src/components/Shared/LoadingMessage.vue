@@ -11,7 +11,7 @@ const props = defineProps({
     required: true,
     default: 'loading-message',
     validator(value: string) {
-      return ['loading-message', 'loading-message-80'].includes(value);
+      return ['loading-message', 'loading-message-80', 'loading-message-full'].includes(value);
     }
   }
 });
@@ -24,5 +24,9 @@ const props = defineProps({
 
 .loading-message-80 {
   @apply h-svh80;
+}
+
+.loading-message-full {
+  @apply h-full;
 }
 </style>
