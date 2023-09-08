@@ -1,12 +1,16 @@
 <template>
+  <loading-message v-show="!isLoaded"></loading-message>
   <img
     :src="photo"
     alt="Couple photos"
     class="h-full w-full rounded-md object-cover shadow-sm shadow-gray-700 lg:object-right xl:object-center"
+    v-show="isLoaded"
+    @load="loadImage"
   />
 </template>
 
 <script lang="ts" setup>
+import LoadingMessage from '../Shared/LoadingMessage.vue';
 import { onBeforeUnmount, ref } from 'vue';
 import couple1 from '/assets/couple1v2.jpeg';
 import couple2 from '/assets/couple2v2.jpeg';
@@ -30,4 +34,10 @@ const changePhoto = () => {
 const intervalPhotos = setInterval(changePhoto, 5000);
 
 onBeforeUnmount(() => clearInterval(intervalPhotos));
+
+const isLoaded = ref(false);
+
+const loadImage = () => {
+  return (isLoaded.value = true);
+};
 </script>
