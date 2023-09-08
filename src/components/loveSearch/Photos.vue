@@ -1,5 +1,5 @@
 <template>
-  <loading-message v-show="!isLoaded"></loading-message>
+  <loading-message v-show="!isLoaded" class="loading-message-full"></loading-message>
   <img
     :src="photo"
     alt="Couple photos"
