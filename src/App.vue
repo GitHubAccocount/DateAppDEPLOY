@@ -21,6 +21,8 @@ const shouldShowFooter = computed(() => {
   const path = route.path;
   return pathMatchesPattern(path);
 });
+
+//comment
 </script>
 
 <style>
